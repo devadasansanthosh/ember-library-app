@@ -1,5 +1,40 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
+<div class="container">
+  
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        {{#link-to 'index' class="navbar-brand"}}Library App{{/link-to}}
+      </div>
 
-{{outlet}}
+      <div class="collapse navbar-collapse" id="main-navbar">
+        <ul class="nav navbar-nav">
+          <NavLinkTo @route="index">Home</NavLinkTo>
+          <NavLinkTo @route="libraries">Libraries</NavLinkTo>
+          <NavLinkTo @route="about">About</NavLinkTo>
+          <NavLinkTo @route="contact">Contact</NavLinkTo>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Admin<span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <NavLinkTo @route="admin.invitations">Invitations</NavLinkTo>
+            <NavLinkTo @route="admin.contacts">Contacts</NavLinkTo>
+            <NavLinkTo @route="admin.seeder">Seeder</NavLinkTo>
+          </ul>
+        </li>
+      </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  {{outlet}}
+</div>
